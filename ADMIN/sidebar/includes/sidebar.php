@@ -25,125 +25,88 @@
     <div class="sidebar-content">
         <!-- Navigation Menu -->
         <nav class="sidebar-nav">
-            <!-- Components Section -->
-            <div class="sidebar-section">
-                <h3 class="sidebar-section-title">Components</h3>
-                <ul class="sidebar-menu">
-                    <li class="sidebar-menu-item">
-                        <a href="buttons.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'buttons.php' ? 'active' : ''; ?>">
-                            <span>Buttons</span>
-                        </a>
-                    </li>
-                    
-                    <li class="sidebar-menu-item">
-                        <a href="forms.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'forms.php' ? 'active' : ''; ?>">
-                            <span>Forms</span>
-                        </a>
-                    </li>
-                    
-                    <li class="sidebar-menu-item">
-                        <a href="textfields.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'textfields.php' ? 'active' : ''; ?>">
-                            <span>Text Fields</span>
-                        </a>
-                    </li>
-                    
-                    <li class="sidebar-menu-item">
-                        <a href="datatables.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'datatables.php' ? 'active' : ''; ?>">
-                            <span>Data Tables</span>
-                        </a>
-                    </li>
-                    
-                    <li class="sidebar-menu-item">
-                        <a href="content.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'content.php' ? 'active' : ''; ?>">
-                            <span>Content</span>
-                        </a>
-                    </li>
-                    
-                    <li class="sidebar-menu-item">
-                        <a href="cards.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'cards.php' ? 'active' : ''; ?>">
-                            <span>Cards</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            
             <!-- Admin Section -->
             <div class="sidebar-section">
                 <h3 class="sidebar-section-title">Admin</h3>
                 <ul class="sidebar-menu">
                     <li class="sidebar-menu-item">
-                        <a href="../admin-dashboard.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'admin-dashboard.php' ? 'active' : ''; ?>">
+                        <a href="dashboard.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'active' : ''; ?>">
+                            <i class="fas fa-home" style="margin-right: 0.5rem;"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     
                     <li class="sidebar-menu-item">
-                        <a href="#" class="sidebar-link sidebar-submenu-toggle">
+                        <a href="users.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'users.php' ? 'active' : ''; ?>">
+                            <i class="fas fa-users" style="margin-right: 0.5rem;"></i>
                             <span>Users</span>
-                            <i class="fas fa-chevron-down submenu-icon"></i>
                         </a>
-                        <ul class="sidebar-submenu">
-                            <li>
-                                <a href="users.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'users.php' ? 'active' : ''; ?>">
-                                    <span>All Users</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="user-roles.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'user-roles.php' ? 'active' : ''; ?>">
-                                    <span>Roles</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="user-permissions.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'user-permissions.php' ? 'active' : ''; ?>">
-                                    <span>Permissions</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     
                     <li class="sidebar-menu-item">
-                        <a href="#" class="sidebar-link sidebar-submenu-toggle">
+                        <a href="general-settings.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'general-settings.php' ? 'active' : ''; ?>">
+                            <i class="fas fa-cog" style="margin-right: 0.5rem;"></i>
                             <span>Settings</span>
-                            <i class="fas fa-chevron-down submenu-icon"></i>
                         </a>
-                        <ul class="sidebar-submenu">
-                            <li>
-                                <a href="general-settings.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'general-settings.php' ? 'active' : ''; ?>">
-                                    <span>General</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="security-settings.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'security-settings.php' ? 'active' : ''; ?>">
-                                    <span>Security</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="appearance-settings.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'appearance-settings.php' ? 'active' : ''; ?>">
-                                    <span>Appearance</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>
             
-            <!-- Actions Section -->
+            <!-- Emergency Communication System Section -->
             <div class="sidebar-section">
-                <h3 class="sidebar-section-title">Actions</h3>
+                <h3 class="sidebar-section-title">Emergency Communication</h3>
                 <ul class="sidebar-menu">
                     <li class="sidebar-menu-item">
-                        <a href="../login.php" class="sidebar-link">
-                            <span>Login</span>
+                        <a href="mass-notification.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'mass-notification.php' ? 'active' : ''; ?>">
+                            <i class="fas fa-broadcast-tower" style="margin-right: 0.5rem;"></i>
+                            <span>Mass Notification</span>
                         </a>
                     </li>
                     
                     <li class="sidebar-menu-item">
-                        <a href="../logout.php" class="sidebar-link">
-                            <span>Logout</span>
+                        <a href="alert-categorization.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'alert-categorization.php' ? 'active' : ''; ?>">
+                            <i class="fas fa-tags" style="margin-right: 0.5rem;"></i>
+                            <span>Alert Categorization</span>
+                        </a>
+                    </li>
+                    
+                    <li class="sidebar-menu-item">
+                        <a href="two-way-communication.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'two-way-communication.php' ? 'active' : ''; ?>">
+                            <i class="fas fa-comments" style="margin-right: 0.5rem;"></i>
+                            <span>Two-Way Communication</span>
+                        </a>
+                    </li>
+                    
+                    <li class="sidebar-menu-item">
+                        <a href="automated-warnings.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'automated-warnings.php' ? 'active' : ''; ?>">
+                            <i class="fas fa-plug" style="margin-right: 0.5rem;"></i>
+                            <span>Automated Warnings</span>
+                        </a>
+                    </li>
+                    
+                    <li class="sidebar-menu-item">
+                        <a href="multilingual-alerts.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'multilingual-alerts.php' ? 'active' : ''; ?>">
+                            <i class="fas fa-language" style="margin-right: 0.5rem;"></i>
+                            <span>Multilingual Support</span>
+                        </a>
+                    </li>
+                    
+                    <li class="sidebar-menu-item">
+                        <a href="citizen-subscriptions.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'citizen-subscriptions.php' ? 'active' : ''; ?>">
+                            <i class="fas fa-users" style="margin-right: 0.5rem;"></i>
+                            <span>Citizen Subscriptions</span>
+                        </a>
+                    </li>
+                    
+                    <li class="sidebar-menu-item">
+                        <a href="audit-trail.php" class="sidebar-link <?php echo basename($_SERVER['PHP_SELF']) == 'audit-trail.php' ? 'active' : ''; ?>">
+                            <i class="fas fa-history" style="margin-right: 0.5rem;"></i>
+                            <span>Audit Trail</span>
                         </a>
                     </li>
                 </ul>
             </div>
+            
         </nav>
     </div>
 </aside>

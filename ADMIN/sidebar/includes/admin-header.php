@@ -30,6 +30,18 @@
     
     <div class="admin-header-right">
         <div class="header-actions">
+            <!-- Theme Toggle Buttons -->
+            <div class="theme-toggle-container">
+                <button class="theme-mode-btn" id="lightModeBtn" aria-label="Light Mode" title="Switch to Light Mode">
+                    <i class="fas fa-sun"></i>
+                    <span>Light</span>
+                </button>
+                <button class="theme-mode-btn" id="darkModeBtn" aria-label="Dark Mode" title="Switch to Dark Mode">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark</span>
+                </button>
+            </div>
+            
             <div class="notification-item">
                 <button class="notification-btn" aria-label="Notifications">
                     <i class="fas fa-bell"></i>
@@ -245,6 +257,66 @@
 // Admin Header functionality
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menuToggle');
+    const lightModeBtn = document.getElementById('lightModeBtn');
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    
+    // Initialize theme
+    function initTheme() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const html = document.documentElement;
+        
+        // If system theme, detect preference
+        if (savedTheme === 'system') {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            html.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+            updateThemeButtons(prefersDark ? 'dark' : 'light');
+        } else {
+            html.setAttribute('data-theme', savedTheme);
+            updateThemeButtons(savedTheme);
+        }
+    }
+    
+    function updateThemeButtons(theme) {
+        if (lightModeBtn && darkModeBtn) {
+            if (theme === 'dark') {
+                lightModeBtn.classList.remove('active');
+                darkModeBtn.classList.add('active');
+            } else {
+                lightModeBtn.classList.add('active');
+                darkModeBtn.classList.remove('active');
+            }
+        }
+    }
+    
+    // Light mode button
+    if (lightModeBtn) {
+        lightModeBtn.addEventListener('click', function() {
+            const html = document.documentElement;
+            html.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            updateThemeButtons('light');
+        });
+    }
+    
+    // Dark mode button
+    if (darkModeBtn) {
+        darkModeBtn.addEventListener('click', function() {
+            const html = document.documentElement;
+            html.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            updateThemeButtons('dark');
+        });
+    }
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        if (localStorage.getItem('theme') === 'system') {
+            initTheme();
+        }
+    });
+    
+    // Initialize theme on load
+    initTheme();
     
     // Toggle sidebar from header menu button
     if (menuToggle) {
