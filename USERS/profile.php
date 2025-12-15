@@ -52,12 +52,28 @@ $current = 'profile.php';
                             <p>Choose categories: Weather, Earthquake, Bomb Threat, Health, and more.</p>
                             <button class="btn btn-secondary">Edit Preferences</button>
                         </div>
-                        <div class="card">
-                            <h4>Languages</h4>
-                            <p>Select your preferred language for alerts.</p>
-                            <button class="btn btn-secondary">Set Language</button>
-                        </div>
                     </div>
+                </section>
+
+                <section class="page-content">
+                    <h2>Language Settings</h2>
+                    <p>Choose your preferred language. This will be used for alerts and interface text where available.</p>
+                    <form class="auth-form" id="languageSettingsForm">
+                        <div class="form-group">
+                            <label>Preferred Language</label>
+                            <div class="form-group-half">
+                                <label>
+                                    <input type="radio" name="preferred_language" value="en">
+                                    English
+                                </label>
+                                <label>
+                                    <input type="radio" name="preferred_language" value="fil">
+                                    Filipino
+                                </label>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="saveLanguageBtn">Save Language</button>
+                    </form>
                 </section>
             </div>
         </div>
@@ -68,6 +84,36 @@ $current = 'profile.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="<?= $assetBase ?>js/mobile-menu.js"></script>
     <script src="<?= $assetBase ?>js/theme-toggle.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            const radios = document.querySelectorAll('input[name="preferred_language"]');
+            const saveBtn = document.getElementById('saveLanguageBtn');
+
+            radios.forEach(r => {
+                if (r.value === savedLang) {
+                    r.checked = true;
+                }
+            });
+
+            if (saveBtn) {
+                saveBtn.addEventListener('click', function () {
+                    const selected = document.querySelector('input[name="preferred_language"]:checked');
+                    if (!selected) return;
+                    const lang = selected.value;
+                    localStorage.setItem('preferredLanguage', lang);
+                    document.documentElement.setAttribute('data-lang', lang);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Language updated',
+                        text: 'Your preferred language has been saved.',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
 
